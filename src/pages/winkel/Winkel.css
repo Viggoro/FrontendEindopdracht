@@ -1,0 +1,20 @@
+.homepage-container {
+    max-width: 1000px;
+    margin: 60px auto;
+}
+
+.bannerImg {
+    height: 28vw;
+    width: 50vw;
+    object-fit: cover;
+}
+
+.description {
+    margin-left: 2vw;
+    margin-bottom: 1vw;
+}
+
+.gridCol2 {
+    display: grid;
+    grid-template-columns: 200px 4fr;
+}

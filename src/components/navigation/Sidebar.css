@@ -1,0 +1,33 @@
+
+/*
+.sidebar {
+    width: 20vw;
+    height: 100vh;
+    background-color: #393939;
+    display: flex;
+    justify-content: center;
+    min-height: 90px;
+}
+ */
+
+.sidebar-container {
+    position: fixed;
+    top: 0vh;
+    left: 0;
+    width: 10vw;
+    min-width: 192px;
+    height: 100%;
+    background-color: #393939;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.home-sidebar {
+    background-color: #393939;
+}
+
+.SidebarH2 {
+    text-decoration-line: underline;
+    text-align: center;
+    margin-bottom: 10px;
+}

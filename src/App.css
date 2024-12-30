@@ -1,0 +1,45 @@
+body {
+  background-color: #2F2E2E;
+  line-height: 1.5;
+  color: white;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  margin: 16px 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+img {
+  width: 100px;
+  margin-right: 16px;
+}
+
+a,
+a:visited {
+  color: white;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #3624FF;
+}
+
+.content-container-col3 {
+  column-count: 3;
+}
+
+.content-container-col2 {
+  column-count: 2;
+}
+
+.content-container-center {
+  text-align: center;
+}
