@@ -6,6 +6,7 @@ import GenreList from "../../components/RawgComponents/GenreList.jsx";
 import GlobalApi from "../../Services/GlobalApi.jsx";
 import Banner from "../../components/RawgComponents/Banner.jsx";
 import TrendingGames from "../../components/RawgComponents/TrendingGames.jsx";
+import GamesByGenresId from "../../components/RawgComponents/GamesByGenresId.jsx";
 
 function Home() {
 /* Todo
@@ -13,16 +14,26 @@ function Home() {
 * generalised classnames als gridCOl2 kunnen naar een meer centrale plek misschien
 * */
     const [allGameList,setAllGameList] = useState();
+    const [gameListByGenres, setGameListByGenres] = useState([]);
     useEffect(() => {
         getAllGamesList();
+        getGameListByGenreId();
     },[])
 
   const getAllGamesList=()=>{
       GlobalApi.getAllGames.then((response) => {
           console.log(response.data.results);
           setAllGameList(response.data.results);
+          setGameListByGenres(response.data.results);
       })
   }
+
+  const getGameListByGenreId =(id)=>{
+        GlobalApi.getGameListByGenreId(4).then((response) => {
+            console.log("GameListByGenreId", response.data.results)
+      })
+  }
+
   return (
 
       /*
@@ -50,14 +61,15 @@ function Home() {
               </div>
               <div className="homepage-container">
                   Game List
-                  <featured>
+                  <div>
                       <h2 className="description">Uitgelicht</h2>
-                  </featured>
+                  </div>
                   <div className="gameBanner">
-                      {allGameList?.length > 0 ?
+                      {allGameList?.length > 0 &&gameListByGenres.length > 0?
                           <div>
                           <Banner gameBanner={allGameList[0]}/>
-                          <TrendingGames></TrendingGames>
+                          <TrendingGames gameList={allGameList}/>
+                          <GamesByGenresId gameList={gameListByGenres}/>
                           </div>
                           : null}
                   </div>
