@@ -1,0 +1,50 @@
+.game-banner-section {
+    width: 100%;
+    margin-bottom: 2rem;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.game-details-container {
+    padding: 1rem;
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.game-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .game-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.game-image {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.game-info-section {
+    margin-bottom: 1.5rem;
+}
+
+.game-info-text {
+    margin-bottom: 0.5rem;
+}
+
+.game-info-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}

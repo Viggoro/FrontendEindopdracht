@@ -1,0 +1,26 @@
+.signup .submit-button {
+    width: 12rem;
+    background-color: #2FB53F;
+    color: white;
+    font-weight: 500;
+    padding: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+/*    border-radius: 100px; */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signup .submit-button:hover {
+    background-color: #269332;
+}
+
+.signup .box-title {
+    align-self: baseline;
+    font-weight: 200;
+}
+
+.signup label {
+    font-weight: 200;
+}

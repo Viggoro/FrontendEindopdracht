@@ -8,35 +8,42 @@ import Navigation from './components/navigation/./Navigation.jsx';
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import GameDetails from "./pages/GameDetails/GameDetails.jsx";
+import SignIn from "./pages/account/SignIn.jsx";
+import SignUp from "./pages/account/SignUp.jsx";
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Search from "./pages/search/Search.jsx";
 
 function App() {
-    /*
-    const [joke, setJoke] = useState(null);
-
-    useEffect(() => {
-        async function fetchJoke() {
-            try {
-                const result = await axios.get('https://api.chucknorris.io/jokes/random');
-                console.log(result.data);
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        fetchJoke();
-    }, []);
-     */
-
     return (
-        <>
+        <AuthProvider>
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/account" element={<Account />} />
-                <Route path="/bibliotheek" element={<Bibliotheek />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route
+                    path="/account"
+                    element={
+                        <ProtectedRoute>
+                            <Account />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/bibliotheek"
+                    element={
+                        <ProtectedRoute>
+                            <Bibliotheek />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route path="/game/:id" element={<GameDetails />} />
                 <Route path="*" element={<NotFound />} />
+                <Route path="search" element={<Search />} />
             </Routes>
-        </>
+        </AuthProvider>
     );
 }
 

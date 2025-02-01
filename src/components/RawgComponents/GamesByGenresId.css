@@ -1,0 +1,28 @@
+.GameBarContainer {
+    background-color: #5E5D5D;
+    margin-bottom: 10px;
+    display: flex;
+    height: 80px;
+    overflow: hidden;
+}
+
+.GameBarImage {
+    width: 150px;
+    height: 150%;
+    object-fit: cover;
+    flex-shrink: 0;
+
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.GameBarContent {
+    user-select: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}

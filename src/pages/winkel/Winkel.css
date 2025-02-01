@@ -1,20 +1,70 @@
 .homepage-container {
-    max-width: 1000px;
-    margin: 60px auto;
+    max-width: 875px;
+    margin: auto;
+    min-width: min-content;
+    width: 100%;
+}
+
+.home-sidebar h3, p {
+    padding-left: 20px;
+}
+
+.home-sidebar h2 {
+    text-decoration-line: underline;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.home-sidebar p:hover {
+    color: grey;
+}
+
+.home-sidebar p {
+    margin-bottom: -10px;
+}
+
+.home-sidebar {
+    background-color: #393939;
+}
+
+.selected {
+    color: grey;
 }
 
 .bannerImg {
-    height: 28vw;
-    width: 50vw;
+    width: 100%;
     object-fit: cover;
 }
 
+.gameListing {
+    min-width: min-content;
+    max-width: 750px;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.banner {
+    margin-bottom: 20px;
+}
+
 .description {
-    margin-left: 2vw;
-    margin-bottom: 1vw;
+    margin-bottom: 10px;
 }
 
 .gridCol2 {
     display: grid;
     grid-template-columns: 200px 4fr;
 }
+
+.GameBarContainer:hover {
+    background-color: darkgray;
+}
+
+.searchbar.home {
+    margin-top: 40px;
+}
+
+
+
+

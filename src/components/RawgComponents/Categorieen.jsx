@@ -1,24 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
+import './Categorieen.css';
 
-class Categoerieen extends Component {
-    render() {
-        return (
-            <div>
-                <h2>
-                    ‎ ‎ Categorieën‎ ‎ ‎
-                </h2>
-                <p>
-                    Nieuw
+function Categorieen({ setCategory, activeCategory }) {
+    const categories = [
+        { id: 'new', name: 'Nieuw' },
+        { id: 'popular', name: 'Populair' },
+        { id: 'free', name: 'Gratis' }
+    ];
+
+    return (
+        <div>
+            <h2>‎ ‎ Categorieën‎ ‎ ‎</h2>
+            {categories.map((category) => (
+                <p
+                    key={category.id}
+                    className={`category-item ${activeCategory === category.id ? 'selected' : ''}`}
+                    onClick={() => setCategory(category.id)}
+                >
+                    {category.name}
                 </p>
-                <p>
-                    Populair
-                </p>
-                <p>
-                    Gratis
-                </p>
-            </div>
-        );
-    }
+            ))}
+        </div>
+    );
 }
 
-export default Categoerieen;
+export default Categorieen;

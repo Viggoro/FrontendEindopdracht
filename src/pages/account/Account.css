@@ -1,0 +1,22 @@
+.account .submit-button {
+    width: 12rem;
+    background-color: #B52F2F;
+    color: white;
+    font-weight: 500;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.account .submit-button:hover {
+    background-color: #a52b2b;
+}
+
+.account .box-title {
+    align-self: baseline;
+    font-weight: 200;
+}

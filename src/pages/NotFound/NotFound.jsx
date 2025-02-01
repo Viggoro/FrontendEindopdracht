@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 
 function NotFound() {
     return (
-        <main className="page-container">
-            <h1 className="content-container-center lowered-text">
+        <main className="page-container notfound">
+            <h1 className="content-container-center">
                 Sorry... Page Not Found
             </h1>
             <p className="content-container-center">

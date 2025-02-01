@@ -1,0 +1,41 @@
+.signin .submit-button {
+    width: 12rem;
+    background-color: #2FB53F;
+    color: white;
+    font-weight: 500;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signin input {
+    min-width: 25rem;
+}
+
+.signin label {
+    font-weight: 200;
+}
+
+.signin .submit-button:hover {
+    background-color: #269332;
+}
+
+.signin .box-title {
+    align-self: baseline;
+    font-weight: 200;
+}
+
+.signin .make-account {
+    text-decoration: none;
+    color: #B1B1B1 !important;
+    align-self: center;
+    padding-top: 4rem;
+    font-weight: 200;
+}
+
+.signin .make-account:hover {
+    color: #656565 !important;
+}

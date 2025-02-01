@@ -5,11 +5,25 @@ const axiosCreate=axios.create({
     baseURL:'https://api.rawg.io/api'
 })
 
+const getGamesWithParams = (params) => {
+    let urlParams = `key=${key}`;
+
+    // Add other parameters
+    for (const [key, value] of Object.entries(params)) {
+        urlParams += `&${key}=${value}`;
+    }
+
+    console.log('API URL being called:', `/games?${urlParams}`);
+    return axiosCreate.get(`/games?${urlParams}`);
+};
+
 const getGenreList=axiosCreate.get('/genres?key='+key);
-const getAllGames=axiosCreate.get('/games?key='+key);
-const getGameListByGenreId=(id)=>axiosCreate.get('/games?key='+key+'&genres='+id);
+const getGameDetails=(gameId)=>axiosCreate.get(`/games/${gameId}?key=`+key);
+const getGameScreenshots=(slug)=>axiosCreate.get(`/games/${slug}/screenshots?key=`+key);
+
 export default {
     getGenreList,
-    getAllGames,
-    getGameListByGenreId
+    getGamesWithParams,
+    getGameDetails,
+    getGameScreenshots
 }

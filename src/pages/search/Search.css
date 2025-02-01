@@ -1,0 +1,66 @@
+.homepage-container.search {
+    max-width: 750px;
+    min-width: min-content;
+    width: 100%;
+    padding: 0;
+    margin: 90px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.home-sidebar.search {
+    background-color: #434343;
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    top: 0;
+    margin: 90px 10px -80px 20px;
+    width: 200px;
+}
+
+/* Add this wrapper to contain both sidebar and main content */
+.search-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: normal;
+    align-content: normal;
+}
+
+.home-sidebar.search h3,
+.home-sidebar.search p {
+    padding-left: 20px;
+}
+
+.home-sidebar.search h2 {
+    text-decoration-line: underline;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.home-sidebar.search p:hover {
+    color: grey;
+}
+
+.home-sidebar.search p {
+    margin-bottom: -10px;
+}
+
+.selected {
+    color: grey;
+}
+
+.GameBarContainer:hover {
+    background-color: darkgray;
+}
+
+.search-and-sort {
+    background-color: #434343;
+    padding: 5px 0px 6px 0px;
+    width: 100%;
+}
