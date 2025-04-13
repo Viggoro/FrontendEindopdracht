@@ -1,0 +1,40 @@
+.genre-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.genre-checkbox {
+    margin: 8px -10px 0px 4px;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background-color: #434343;
+    border: 1px solid #777;
+    position: relative;
+    cursor: pointer;
+}
+
+.genre-checkbox:checked {
+    background-color: #888;
+}
+
+.genre-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.genre-checkbox-label p {
+    margin: 0;
+    padding: 7px 0;
+}
