@@ -20,3 +20,6 @@ Wanneer dit klaar is, kun je de applicatie starten met behulp van:
 Open http://localhost:5173 om de pagina in de browser te bekijken.
 
 
+Git: https://github.com/Viggoro/FrontendEindopdracht
+
+
