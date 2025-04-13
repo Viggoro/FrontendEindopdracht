@@ -4,7 +4,6 @@ import './SearchBar.css';
 function SearchBar({ onSearch, defaultValue = '' }) {
     const [searchTerm, setSearchTerm] = useState(defaultValue);
 
-    // Update searchTerm when defaultValue changes
     useEffect(() => {
         if (defaultValue) {
             setSearchTerm(defaultValue);

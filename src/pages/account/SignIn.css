@@ -39,3 +39,14 @@
 .signin .make-account:hover {
     color: #656565 !important;
 }
+
+.success-message {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid #2ecc71;
+}

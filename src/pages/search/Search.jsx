@@ -102,6 +102,7 @@ function Search() {
                     <GenreList
                         selectedGenres={selectedGenres}
                         onGenreToggle={handleGenreToggle}
+                        showCheckboxes={true}
                     />
                 </div>
             </section>
@@ -115,7 +116,7 @@ function Search() {
                                     defaultValue={location.state?.searchQuery || ''}
                                 />
                             </section>
-                            <GamesByGenresId gameList={gameListByGenres}/>
+                            <GamesByGenresId gameList={gameListByGenres} showWishlist={true} showCartButton={false} limit={15}/>
                         </div>
                         : null}
                 </div>

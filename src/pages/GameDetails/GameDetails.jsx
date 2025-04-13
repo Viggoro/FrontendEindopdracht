@@ -56,13 +56,13 @@ function GameDetails() {
                     <Banner
                         images={screenshots.map(screenshot => screenshot.image)}
                         imageCount={screenshots.length}
-                        interval={0} // 3 sec
+                        interval={0}
                     />
                 </div>
             )}
 
             <div className="game-content">
-                <div className="game-info-section">
+                <div className="game-description-section">
                     <p>{gameDetails.description_raw}</p>
                 </div>
                 <div>

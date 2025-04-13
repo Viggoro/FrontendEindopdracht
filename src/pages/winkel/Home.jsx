@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import './Winkel.css';
+import './Home.css';
 import GenreList from "../../components/RawgComponents/GenreList.jsx";
 import GlobalApi from "../../Services/GlobalApi.jsx";
 import Banner from "../../components/RawgComponents/Banner.jsx";
 import GamesByGenresId from "../../components/RawgComponents/GamesByGenresId.jsx";
 import Categorieen from "../../components/RawgComponents/Categorieen.jsx";
 import SearchBar from "../../components/RawgComponents/SearchBar.jsx";
-import { useNavigate } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 
 function Home() {
     const [allGameList, setAllGameList] = useState();
@@ -59,7 +59,6 @@ function Home() {
         <>
             <div className="gridCol2">
                 <div className="home-sidebar">
-                    Genre
                     <Categorieen
                         setCategory={handleCategorySelect}
                         activeCategory="popular"
@@ -67,12 +66,16 @@ function Home() {
                     <GenreList
                         selectedGenres={new Set()}
                         onGenreToggle={handleGenreToggle}
+                        showCheckboxes={false}
                     />
                 </div>
                 <div className="homepage-container">
                     <div className="searchbar home">
                         <SearchBar onSearch={handleSearch} />
                     </div>
+                    <NavLink to={"/search"} className="all-games-link-top">
+                        Alle games
+                    </NavLink>
                     <div className="gameListing">
                         <h2 className="description">Uitgelicht</h2>
                         {allGameList?.length > 0 && gameListByGenres.length > 0 ?
@@ -85,7 +88,10 @@ function Home() {
                                         interval={5000}
                                     />
                                 </div>
-                                <GamesByGenresId gameList={gameListByGenres}/>
+                                <GamesByGenresId gameList={gameListByGenres} showWishlist={true} showCartButton={false} limit={10}/>
+                                <NavLink to={"/search"} className="all-games-link">
+                                    Alle games
+                                </NavLink>
                             </div>
                             : null}
                     </div>

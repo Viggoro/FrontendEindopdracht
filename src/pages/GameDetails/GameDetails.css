@@ -1,13 +1,13 @@
 .game-banner-section {
-    width: 100%;
-    margin-bottom: 2rem;
-    max-height: 500px;
+    width: 600px;
+    margin-bottom: 1rem;
+    max-height: 337px;
     overflow: hidden;
 }
 
 .game-details-container {
-    padding: 1rem;
-    max-width: 72rem;
+    padding: 10px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -38,6 +38,14 @@
 
 .game-info-section {
     margin-bottom: 1.5rem;
+    background-color: #434343;
+    padding: 1px 1px 1px 0px;
+}
+
+.game-description-section {
+    width: 600px;
+    margin-bottom: 1.5rem;
+    background-color: #434343;
 }
 
 .game-info-text {

@@ -8,7 +8,6 @@ const axiosCreate=axios.create({
 const getGamesWithParams = (params) => {
     let urlParams = `key=${key}`;
 
-    // Add other parameters
     for (const [key, value] of Object.entries(params)) {
         urlParams += `&${key}=${value}`;
     }

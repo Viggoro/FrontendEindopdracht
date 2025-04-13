@@ -13,10 +13,21 @@ function Account() {
     navigate('/');
   };
 
+  const handleChangePassword = () => {
+    navigate('/change-password');
+  };
+
   return (
       <div className="app-container account">
         <FormBox title="Account instellingen">
           <form className="login-form">
+            <button
+                type="button"
+                className="account-button"
+                onClick={handleChangePassword}
+            >
+              Wachtwoord wijzigen
+            </button>
             <button
                 type="button"
                 className="submit-button"

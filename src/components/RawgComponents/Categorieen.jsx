@@ -10,7 +10,7 @@ function Categorieen({ setCategory, activeCategory }) {
 
     return (
         <div>
-            <h2>‎ ‎ Categorieën‎ ‎ ‎</h2>
+            <h2 className={"Categorieen"}>‎ ‎ Categorieën‎ ‎ ‎</h2>
             {categories.map((category) => (
                 <p
                     key={category.id}

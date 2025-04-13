@@ -19,10 +19,9 @@
     order: 0;
     top: 0;
     margin: 90px 10px -80px 20px;
-    width: 200px;
+    width: 220px;
 }
 
-/* Add this wrapper to contain both sidebar and main content */
 .search-wrapper {
     display: flex;
     flex-direction: row;
@@ -30,6 +29,7 @@
     justify-content: center;
     align-items: normal;
     align-content: normal;
+    margin-left: 200px;
 }
 
 .home-sidebar.search h3,
@@ -40,7 +40,7 @@
 .home-sidebar.search h2 {
     text-decoration-line: underline;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .home-sidebar.search p:hover {
@@ -63,4 +63,8 @@
     background-color: #434343;
     padding: 5px 0px 6px 0px;
     width: 100%;
+}
+
+.search-and-sort {
+    margin-bottom: 10px;
 }

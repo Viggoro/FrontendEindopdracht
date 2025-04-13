@@ -1,8 +1,16 @@
 .GameBarContainer {
     background-color: #5E5D5D;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     display: flex;
     height: 80px;
+    overflow: hidden;
+    position: relative;
+}
+
+.GameBarClickable {
+    display: flex;
+    flex: 1;
+    cursor: pointer;
     overflow: hidden;
 }
 
@@ -25,4 +33,103 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 0px;
+}
+
+.GameBarContent h2 {
+    font-weight: 300;
+}
+
+.GameBarContent h3 {
+    font-weight: 200;
+    color: #B1B1B1;
+}
+
+.GameBarActions {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.WishlistButton, .CartButton {
+    filter: saturate(1%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 8px;
+}
+
+.WishlistButton:hover, .CartButton:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.WishlistButton.InWishlist {
+    filter: saturate(90%);
+}
+
+.CartButton.InCart {
+    background-color: rgba(0, 128, 0, 0.3);
+    cursor: default;
+}
+
+.WishlistButton:disabled, .CartButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.WishlistButton.TransparentBackground {
+    background-color: transparent;
+}
+
+.WishlistButton.TransparentBackground:hover {
+    background-color: transparent;
+}
+
+.WishlistButton.TransparentBackground.InWishlist {
+    background-color: transparent;
+}
+
+.WishlistIcon, .CartIcon {
+    height: 110%;
+    object-fit: contain;
+    padding-left: 15px;
+    transition: transform 0.2s ease;
+}
+
+.WishlistButton:hover .WishlistIcon,
+.CartButton:hover .CartIcon {
+    transform: scale(1.1);
+}
+
+.WishlistButton.InWishlist .WishlistIcon {
+    filter: brightness(1.2);
+}
+
+.CartButton {
+    position: relative;
+}
+
+.InCartLabel {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

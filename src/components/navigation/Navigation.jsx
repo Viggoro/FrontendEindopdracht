@@ -3,7 +3,8 @@ import './Navigation.css';
 import { NavLink } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.svg";
-import driehoek from "../../assets/Driehoek.svg";
+import carticon from "../../assets/Shoppingcart.svg";
+import heartemoji from "../../assets/Heartemoji.svg";
 import PageIcon from "../header/MyLogo.jsx";
 import { useAuth } from '../../context/AuthContext';
 
@@ -21,6 +22,14 @@ function Navigation() {
 
     const home = () => {
         navigate('/');
+    };
+
+    const wishlist = () => {
+        navigate('/wishlist');
+    };
+
+    const shoppingcart = () => {
+        navigate('/shoppingcart');
     };
 
     return (
@@ -50,16 +59,20 @@ function Navigation() {
             </div>
             {user && (
                 <>
-                    <button className="signinup triangle-button" onClick={home}>
-                        <img src={driehoek} alt="Triangle Icon"/>
+                    <button className="wishshoppinglist wishlist-button" onClick={wishlist}>
+                        <img src={heartemoji} alt="Heart Emoji"/>
                     </button>
-                    <button className="signinup triangle-button" onClick={home}>
-                        <img src={driehoek} alt="Triangle Icon"/>
+                    <button className="wishshoppinglist shoppingcart-button" onClick={shoppingcart}>
+                        <img src={carticon} alt="Cart Icon"/>
                     </button>
                 </>
             )}
-            <button className="signinup" onClick={signUp}>sign-up</button>
-            <button className="signinup" onClick={signIn}>sign-in</button>
+            {!user && (
+                <>
+                    <button className="signinup" onClick={signUp}>sign-up</button>
+                    <button className="signinup" onClick={signIn}>sign-in</button>
+                </>
+            )}
         </nav>
     );
 }

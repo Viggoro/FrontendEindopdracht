@@ -11,9 +11,12 @@ import axios from 'axios';
 import GameDetails from "./pages/GameDetails/GameDetails.jsx";
 import SignIn from "./pages/account/SignIn.jsx";
 import SignUp from "./pages/account/SignUp.jsx";
+import ChangePassword from "./pages/account/ChangePassword.jsx";
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Search from "./pages/search/Search.jsx";
+import Wishlist from './pages/Wishlist/Wishlist.jsx';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart.jsx';
 
 function App() {
     return (
@@ -32,10 +35,34 @@ function App() {
                     }
                 />
                 <Route
+                    path="/change-password"
+                    element={
+                        <ProtectedRoute>
+                            <ChangePassword />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
                     path="/bibliotheek"
                     element={
                         <ProtectedRoute>
                             <Bibliotheek />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/wishlist"
+                    element={
+                        <ProtectedRoute>
+                            <Wishlist />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/shoppingcart"
+                    element={
+                        <ProtectedRoute>
+                            <ShoppingCart />
                         </ProtectedRoute>
                     }
                 />

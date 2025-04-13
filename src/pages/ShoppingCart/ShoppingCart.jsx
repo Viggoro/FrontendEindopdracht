@@ -5,40 +5,39 @@ import { userAPI } from '../../Services/api';
 import { useAuth } from '../../context/AuthContext';
 import GlobalApi from '../../Services/GlobalApi.jsx';
 import SearchBar from '../../components/RawgComponents/SearchBar.jsx';
-import './Wishlist.css';
+import './ShoppingCart.css';
 
-function Wishlist() {
-    const [wishlistGames, setWishlistGames] = useState([]);
+function ShoppingCart() {
+    const [cartGames, setCartGames] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [checkoutLoading, setCheckoutLoading] = useState(false);
     const [error, setError] = useState(null);
     const { user } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (!user) {
-            navigate('/login', { state: { from: '/wishlist' } });
+            navigate('/login', { state: { from: '/cart' } });
             return;
         }
         
-        fetchWishlistGames();
+        fetchCartGames();
     }, [user, navigate]);
 
-    const fetchWishlistGames = async () => {
+    const fetchCartGames = async () => {
         setLoading(true);
         setError(null);
         
         try {
-            // Get the user's wishlist IDs
-            const wishlistIds = await userAPI.getUserWishlist();
+            const cartIds = await userAPI.getUserCart();
             
-            if (wishlistIds.length === 0) {
-                setWishlistGames([]);
+            if (cartIds.length === 0) {
+                setCartGames([]);
                 setLoading(false);
                 return;
             }
-            
-            // Fetch game details for each ID in the wishlist
-            const gamesPromises = wishlistIds.map(id => 
+
+            const gamesPromises = cartIds.map(id => 
                 GlobalApi.getGameDetails(id)
                     .then(response => response.data)
                     .catch(err => {
@@ -48,59 +47,108 @@ function Wishlist() {
             );
             
             const gamesData = await Promise.all(gamesPromises);
-            
-            // Filter out any failed requests
+
             const validGames = gamesData.filter(game => game !== null);
             
-            setWishlistGames(validGames);
+            setCartGames(validGames);
         } catch (error) {
-            console.error('Error fetching wishlist games:', error);
-            setError('Failed to load your wishlist. Please try again later.');
+            console.error('Error fetching cart games:', error);
+            setError('Failed to load your shopping cart. Please try again later.');
         } finally {
             setLoading(false);
         }
     };
 
-    const handleSearch = (searchTerm) => {
-        navigate('/search', {
-            state: {
-                selectedGenres: new Set(),
-                activeCategory: 'popular',
-                searchQuery: searchTerm
-            }
-        });
+    const handleCheckout = async () => {
+        if (cartGames.length === 0) {
+            alert('Your cart is empty. Please add games before checking out.');
+            return;
+        }
+        
+        setCheckoutLoading(true);
+        try {
+            await userAPI.checkout();
+
+            alert('Checkout successful! The games have been added to your library.');
+
+            setCartGames([]);
+
+            navigate('/bibliotheek');
+        } catch (error) {
+            console.error('Error during checkout:', error);
+            setError('Failed to complete checkout. Please try again later.');
+        } finally {
+            setCheckoutLoading(false);
+        }
+    };
+
+    const handleRemoveFromCart = async (gameId) => {
+        try {
+            await userAPI.removeFromCart(gameId);
+            setCartGames(prev => prev.filter(game => game.id !== gameId));
+        } catch (error) {
+            console.error('Error removing game from cart:', error);
+            setError('Failed to remove game from cart. Please try again.');
+        }
     };
 
     return (
-        <div className="wishlist-container">
-            <div className="wishlist-header">
-                <h1>My Wishlist</h1>
-                <div className="searchbar">
-                    <SearchBar onSearch={handleSearch} />
-                </div>
+        <div className="cart-container">
+            <div className="cart-header">
+                <h1>Shopping Cart</h1>
             </div>
 
             {loading ? (
-                <div className="loading-indicator">Loading your wishlist...</div>
+                <div className="loading-indicator">Loading your shopping cart...</div>
             ) : error ? (
                 <div className="error-message">
                     <p>{error}</p>
-                    <button onClick={fetchWishlistGames}>Try Again</button>
+                    <button onClick={fetchCartGames}>Try Again</button>
                 </div>
-            ) : wishlistGames.length === 0 ? (
-                <div className="empty-wishlist">
-                    <p>Your wishlist is empty.</p>
-                    <button onClick={() => navigate('/winkel')}>
+            ) : cartGames.length === 0 ? (
+                <div className="empty-cart">
+                    <p>Your shopping cart is empty.</p>
+                    <button onClick={() => navigate('/')}>
                         Explore Games
                     </button>
                 </div>
             ) : (
-                <div className="wishlist-games">
-                    <GamesByGenresId gameList={wishlistGames} showWishlist={true} useDriehoek={true} />
-                </div>
+                <>
+                    <div className="cart-summary">
+                        <div className="cart-info">
+                            <p>Items in cart: <strong>{cartGames.length}</strong></p>
+                            <p>Total: <strong>€00,00</strong></p>
+                        </div>
+                        <button 
+                            className="checkout-button"
+                            onClick={handleCheckout}
+                            disabled={checkoutLoading}
+                        >
+                            {checkoutLoading ? 'Processing...' : 'Checkout'}
+                        </button>
+                    </div>
+                    <div className="cart-games">
+                        <div className="cart-items-list">
+                            {cartGames.map(game => (
+                                <div key={game.id} className="cart-item">
+                                    <div className="cart-item-info">
+                                        <h3>{game.name}</h3>
+                                        <p className="cart-item-price">€00,00</p>
+                                    </div>
+                                    <button 
+                                        className="remove-button"
+                                        onClick={() => handleRemoveFromCart(game.id)}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </>
             )}
         </div>
     );
 }
 
-export default Wishlist; 
+export default ShoppingCart;

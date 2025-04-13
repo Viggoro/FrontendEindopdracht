@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;800&display=swap");
+
 .homepage-container {
     max-width: 875px;
     margin: auto;
@@ -7,12 +9,14 @@
 
 .home-sidebar h3, p {
     padding-left: 20px;
+    font-weight: 300;
 }
 
 .home-sidebar h2 {
     text-decoration-line: underline;
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .home-sidebar p:hover {
@@ -23,7 +27,7 @@
     margin-bottom: -10px;
 }
 
-.home-sidebar {
+.gridCol2 .home-sidebar {
     background-color: #393939;
 }
 
@@ -50,6 +54,7 @@
 
 .description {
     margin-bottom: 10px;
+    font-weight: 300;
 }
 
 .gridCol2 {
@@ -65,6 +70,29 @@
     margin-top: 40px;
 }
 
+.all-games-link:hover {
+    color: #656565 !important;
+}
+
+.all-games-link {
+    text-decoration: none;
+    color: #B1B1B1 !important;
+    padding-left: 660px;
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+}
+
+.all-games-link-top:hover {
+    color: #656565 !important;
+}
+
+.all-games-link-top {
+    text-decoration: none;
+    color: #B1B1B1 !important;
+    padding-left: 760px;
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+}
 
 
 
